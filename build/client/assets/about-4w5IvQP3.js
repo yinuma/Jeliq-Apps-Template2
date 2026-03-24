@@ -1,0 +1,1 @@
+import{D as e,t}from"./jsx-runtime-Bjpwa1OI.js";var n=t(),r=e(function(){return(0,n.jsxs)(`section`,{id:`center`,children:[(0,n.jsx)(`h1`,{children:`About`}),(0,n.jsx)(`p`,{children:`This is a React SPA with React Router v7 file-based routing.`})]})});export{r as default};
