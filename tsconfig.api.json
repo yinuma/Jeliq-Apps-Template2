@@ -12,6 +12,7 @@
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "noEmit": false,
     "outDir": "./dist/api/",
     "verbatimModuleSyntax": false,
@@ -33,6 +34,7 @@
   "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
   "exclude": [
     "./app/**/*",
+    "react-router.config.ts",
     "./src/services/client/**/*",
     "./src/infra/api/client/**/*",
     "node_modules",
