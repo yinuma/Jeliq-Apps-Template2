@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "useDefineForClassFields": true,
+    "module": "commonjs",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "composite": true,
+
+    /* API build mode */
+    "moduleResolution": "node",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "outDir": "./dist/api/",
+    "verbatimModuleSyntax": false,
+    "allowImportingTsExtensions": false,
+
+    /* Path aliases */
+    "paths": {
+      "@/*": ["./*"]
+    },
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
+  "exclude": [
+    "./app/**/*",
+    "./src/services/client/**/*",
+    "./src/infra/api/client/**/*",
+    "node_modules",
+    "vite.config.ts",
+    "./dist/**/*"
+  ],
+  "ts-node": {
+    "esm": false,
+    "experimentalSpecifierResolution": "node"
+  }
+}

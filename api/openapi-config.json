@@ -1,0 +1,8 @@
+{
+  "schemaFile": "../src/infra/api/schema/schema.json",
+  "apiFile": "../src/infra/api/client/baseApi.ts",
+  "apiImport": "api",
+  "outputFile": "../src/infra/api/client/coreApi.ts",
+  "exportName": "coreApi",
+  "hooks": true
+}

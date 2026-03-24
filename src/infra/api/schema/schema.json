@@ -1,0 +1,191 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "version": "1.0.0",
+    "title": "Jenify App Backend API"
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "responses": {
+      "Error400": {
+        "description": "The JSON format is invalid or a validation error occurred.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error401": {
+        "description": "There was a login error or the access token is invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error403": {
+        "description": "The application ID or key is not specified, the application could not be found, there was an attempt to access unauthorized content, the requested operation permissions were not granted, or the resource is read-only.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error404": {
+        "description": "The specified instance, resource, or content could not be found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error405": {
+        "description": "The requested HTTP method is not allowed.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error415": {
+        "description": "The request header's Content-Type is not 'application/json' or 'multipart/form-data'.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error500": {
+        "description": "An internal server error occurred.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "description": "Error information.",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Unique code identifying the error."
+          },
+          "conditions": {
+            "type": "object",
+            "description": "Conditions that were met to trigger the error."
+          },
+          "message": {
+            "type": "string",
+            "description": "Brief message about the error."
+          },
+          "details": {
+            "$ref": "#/components/schemas/ErrorDetails"
+          }
+        },
+        "required": ["code", "message"]
+      },
+      "ErrorDetails": {
+        "type": "object",
+        "description": "Detailed information about the error.",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/Error"
+        }
+      }
+    },
+    "parameters": {
+      "Authentication": {
+        "name": "Authentication",
+        "in": "header",
+        "description": "Authentication token",
+        "required": false,
+        "allowEmptyValue": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "SearchKeywords": {
+        "name": "keywords",
+        "in": "query",
+        "description": "A query parameter for search keywords.",
+        "required": false,
+        "allowEmptyValue": true,
+        "schema": {
+          "type": "string",
+          "nullable": true,
+          "minLength": 0
+        }
+      },
+      "SearchPage": {
+        "name": "page",
+        "in": "query",
+        "description": "A query parameter for specifying the page number of the results.",
+        "required": false,
+        "allowEmptyValue": true,
+        "schema": {
+          "type": "integer",
+          "nullable": true,
+          "default": 1
+        }
+      },
+      "SearchLimit": {
+        "name": "limit",
+        "in": "query",
+        "description": "A query parameter for specifying the maximum number of results per page.",
+        "required": false,
+        "allowEmptyValue": true,
+        "schema": {
+          "type": "integer",
+          "nullable": true,
+          "default": 10
+        }
+      },
+      "SearchOrderBy": {
+        "name": "orderBy",
+        "in": "query",
+        "description": "A query parameter for specifying the field name by which the results should be ordered.",
+        "required": false,
+        "allowEmptyValue": true,
+        "schema": {
+          "type": "string",
+          "nullable": true,
+          "minLength": 0
+        }
+      },
+      "SearchAsc": {
+        "name": "asc",
+        "in": "query",
+        "description": "A query parameter for specifying the sorting order of the results (ascending or descending).",
+        "required": false,
+        "allowEmptyValue": true,
+        "schema": {
+          "type": "boolean",
+          "nullable": true,
+          "default": false
+        }
+      }
+    }
+  }
+}
